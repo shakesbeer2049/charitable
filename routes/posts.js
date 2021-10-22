@@ -1,7 +1,5 @@
 const router = require("express").Router();
 const Post = require("../models/Post");
-const User = require("../models/User");
-const path = require("path")
 const multer = require("multer")
 const storage = multer.diskStorage({
   destination: (req, file, cb) =>{
@@ -32,23 +30,71 @@ router.post("/create", upload.single("image") , (req,res) => {
 })
 
 
-//Display all donations
+//Display approved donations
+
 router.get('/', (req, res) => {
+  //find and iterate approved posts
+  const approved = [];
   Post.find()
   .then((result) => {
-    res.render("index", {posts:result})
-  })
+    result.map(ele => {if(ele.approved == true){
+      approved.push(ele);
+    } else{
+     console.log("no approved posts");
+    }})
+    res.render("index", {posts:approved}) 
+  } )
   .catch((err)=> console.log(err,"found error"))
 })
 
-// //delete a post
-// router.delete("/:id", (req, res) => {
-//   const post = Post.findByIdAndDelete(req.param.id)
-//   .then((result)=>{
-//       console.log("post deleted")
-//   })
-//   .err((err=> console.log(err)))
-// })
+
+//show single post to approve
+router.get("/admin-login/to-approve/:id", async(req, res) => {
+  try {
+    const id = req.params.id 
+    Post.findById(id)
+    .then((result)=>{
+    res.render("admin-view-details", {post:result})
+  })
+
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
+//Approve post
+router.put("/admin-login/approve/:id", async(req, res, next) => {
+  try {
+    const id = req.params.id ;
+    const updates = req.body;
+    const options = {new:true};
+
+    const result = await Post.findOneAndUpdate({_id:req.params.id},{
+      $set:{
+        approved: true,
+      }
+    },options
+      )
+
+    res.render("admin-view",{posts:notApproved})
+    // console.log(result)
+    // res.status(200).json("done")
+    
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
+
+//get a single post
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  Post.findById(id)
+  .then((result)=>{
+    res.render("details", {post:result})
+  })
+  .catch(err => console.log(err))
+})
 
 //DELETE POST
 router.delete("/:id", (req, res) => {
@@ -60,15 +106,5 @@ router.delete("/:id", (req, res) => {
     })
     .catch(err => console.log(err))
 });
-
-//get a single post
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  Post.findById(id)
-  .then((result)=>{
-    res.render("details", {post:result})
-  })
-  .catch(err => console.log(err))
-})
 
 module.exports = router;

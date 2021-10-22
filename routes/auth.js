@@ -1,11 +1,13 @@
 const express = require('express');
+const mo = require('method-override')
 const router = require("express").Router();
 const User = require("../models/User");
 const Admin = require("../models/Admin");
+const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
 const popup = require("node-popup")
 
-//REGISTER
+//REGISTER USER
 router.post("/registerUser", async (req, res) => {
   try {
     console.log("in try block");
@@ -55,22 +57,19 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//Admin Login
+//Admin Login and iterate posts to be approved
 
 router.post("/admin-login" , async(req,res) => {
+  const notApproved = []
     try {
-     
-      const user = await User.findOne({email:req.body.email})
-      
-      console.log(email,req.body.email)
-      // !admin && res.status(404).json("user not found")
-      if(user){
-        console.log("admin found")
-        res.render("index")
+      const admin = await Admin.findOne({ email: req.body.email });
+      !admin && res.status(404).json("user not found");
+      const result = await Post.find()
+      result.map(ele=> { if(ele.approved == false){
+        notApproved.push(ele)
       }
-      else{
-        res.status(404).json("user not found")
-      }
+    })
+    res.render("admin-view",{posts:notApproved})
 
     } catch (error) {
       res.status(500).json(error)
