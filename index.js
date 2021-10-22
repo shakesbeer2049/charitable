@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const path = require("path")
+const adminRoute = require("./routes/admin");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
@@ -27,6 +28,7 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 
 //middleware
@@ -44,11 +46,12 @@ app.use(methodOverride(function (req, res) {
   }
 }))
 
+app.use(adminRoute)
 app.use(mainRoutes)
 app.use(authRoute);
 app.use(userRoute);
 app.use(postRoute);
-app.get('/favicon.ico', (req, res) => res.status(204));
+
 
 
 

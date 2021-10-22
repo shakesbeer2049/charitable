@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-  <title>Charitable|Admin Dashboard</title>
+  <title>Charitable</title>
   <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
@@ -19,36 +19,32 @@
   <%- include('partials/nav') %> 
 
     <div class="charity-section">
-     <div class="admin-heading">
-      <h1><a href="">Approval Requests</a></h1> 
-      <h1 class="approved"><a href="">Already Approved</a></h1>
-     </div>
+      <h1>Current Drives</h1>
     <div class="details">
+      
         <% if(posts.length > 0 ){ %> 
-            <% posts.map((post)=>{  %> 
-                <div class="donation-card">
-                  <a href="admin-login/to-approve/<%= post._id %>"  class="single">
-                   <img src="/media/<%= post.image %> "> 
-                    <p><%= post.title %> </p>
-                    <p><%= post.desc %> </p>
-                    <p>Funds target : <%= post.amount %> </p>
-                    <div class="buttons">
-                        <button href="/admin-login/to-approve/<%= post._id %>" class="registerBtn">Approve</button>
-                        <a class="delete" data-doc="<%= post._id %>"><button class="registerBtn del"> Delete </button></a>
-                      
-                    </div></a>
-                </div> 
-                <% })}else { %>  
-                <h3>No approval requests </h3>
-              <% } %> 
+        <% posts.map((post)=>{  %> 
+            <div class="donation-card">
+              <a href="/<%= post._id %>"  class="single">
+               <img src="/media/<%= post.image %> "> 
+                <p><%= post.title %> </p>
+                <p><%= post.desc %> </p>
+                <p>Funds target : <%= post.amount %> </p>
+                <div class="buttons">
+                    <a class="delete" data-doc="<%= post._id %>"><button class="registerBtn del"> DELETE </button></a>
+                </div></a>
+            </div> 
+            <% })}else { %>  
+            <h3>No charity drives available </h3>
+          <% } %> 
 
     </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
       <h4>“ When a person dies, all their deeds end except three:
         a continuing charity, beneficial knowledge and a 
         child who prays for them ”</h4>  
-    </div>
+    </div> -->
   
   <style>
     h1{
@@ -89,14 +85,14 @@
     button{
     margin-top: 3%;
     border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 8px 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+	border: 1px solid #FF4B2B;
+	background-color: #a50a0a;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 8px 20px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -112,8 +108,6 @@ button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
-
 </style>
-<script src="/script.js"></script>
 </body>
 </html>
