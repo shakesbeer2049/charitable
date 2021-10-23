@@ -10,6 +10,7 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const mainRoutes = require("./routes/main") 
+const QRCode = require('qrcode')
 const methodOverride = require("method-override")
 app.set('view engine','ejs');
 app.use(express.static('public'))
@@ -56,6 +57,7 @@ app.use(postRoute);
 
 
 
-app.listen(3000, () => {
+
+app.listen(8800, () => {
   console.log("Backend server is running!");
 });

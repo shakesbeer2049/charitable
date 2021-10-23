@@ -36,6 +36,7 @@ input{
 }
 
 button{
+	margin: auto;
     margin-top: 10%;
     border-radius: 20px;
 	border: 1px solid #FF4B2B;
@@ -46,8 +47,7 @@ button{
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-    margin-left: 20%;
-    margin-right: 20%;
+	margin-left: 30%;
 }
 button:active {
 	transform: scale(0.95);

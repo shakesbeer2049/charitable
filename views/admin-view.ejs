@@ -21,7 +21,7 @@
     <div class="charity-section">
      <div class="admin-heading">
       <h1><a href="">Approval Requests</a></h1> 
-      <h1 class="approved"><a href="">Already Approved</a></h1>
+      <h1 class="approved"><a href="/approved">Already Approved</a></h1>
      </div>
     <div class="details">
         <% if(posts.length > 0 ){ %> 
@@ -33,8 +33,9 @@
                     <p><%= post.desc %> </p>
                     <p>Funds target : <%= post.amount %> </p>
                     <div class="buttons">
-                        <button href="/admin-login/to-approve/<%= post._id %>" class="registerBtn">Approve</button>
-                        <a class="delete" data-doc="<%= post._id %>"><button class="registerBtn del"> Delete </button></a>
+                        <button style="margin-right: 60px;" href="/admin-login/to-approve/<%= post._id %>" class="registerBtn">Approve</button>
+                        <a class="delete"style="margin-right: 40px;" data-doc="<%= post._id %>"><button class="registerBtn del" style="background-color: red;"> Delete </button></a>
+                        <button  href="/admin-login/to-approve/<%= post._id %>" class="registerBtn">Details</button>
                       
                     </div></a>
                 </div> 
