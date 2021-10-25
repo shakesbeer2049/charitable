@@ -20,20 +20,36 @@
 
     <div class="charity-section">
       <h1>Approved Requests</h1>
-    <div class="details">
+    <div class="detkails">
       
         <% if(posts.length > 0 ){ %> 
         <% posts.map((post)=>{  %> 
+          <div class="main">
             <div class="donation-card">
-              <a href="/<%= post._id %>"  class="single">
+              <a href="/<%= post._id %>" >
                <img src="/media/<%= post.image %> "> 
                 <p><%= post.title %> </p>
                 <p><%= post.desc %> </p>
                 <p>Funds target : <%= post.amount %> </p>
-                <div class="buttons">
-                    <a class="delete" data-doc="<%= post._id %>"><button class="registerBtn del"> DELETE </button></a>
-                </div></a>
-            </div> 
+                
+              </a>
+                <div class="buttns">
+                    <a class="delete" data-doc="<%= post._id %>">
+                      <button class="registerBtn del"> DELETE </button>
+                    </a>
+                </div>
+              </div>
+                <img class="qrpic" src="/media/qr.png" alt="">
+                 <!-- QR GEN -->
+                <!-- <img src=<d%=qr_code[0] %> alt="QR Code"> -->
+              </div>
+                <!-- QR GEN -->
+                <!-- <img src=<d%=qr_code[0] %> alt="QR Code"> -->
+                 
+  
+        <!-- <a href="/lol" role="button" class="btn btn-primary">Back</a> -->
+    
+            <!-- </div>  -->
             <% })}else { %>  
             <h3>No Approved Posts </h3>
           <% } %> 
@@ -51,8 +67,9 @@
         text-align: center;
     }
     .details{
+      
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         margin-bottom: 5%;
@@ -65,12 +82,12 @@
          width: 100%;
        }
     .donation-card{
-    
+        
         text-align: center;
         background-color: white;
-        width: 35%;
-        margin: auto;
+        width: 27%;
         margin-top: 5%;
+        margin-left: auto;
         border-radius: 25px;
         background-color: #fff;
         border-radius: 10px;
@@ -107,6 +124,20 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
+}
+
+.main{
+  
+  display: flex;
+  
+}
+.qrpic{
+  
+  
+  width: 10%;
+  height: 10%;
+  margin: auto;
+  margin-left: 0;
 }
 </style>
 <script src="/script.js"></script>

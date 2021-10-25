@@ -10,7 +10,10 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const mainRoutes = require("./routes/main") 
-const QRCode = require('qrcode')
+const payRoute = require("./routes/server")
+const qrcode = require('qrcode')
+const Post = require("./models/Post");
+const User = require("./models/User");
 const methodOverride = require("method-override")
 app.set('view engine','ejs');
 app.use(express.static('public'))
@@ -29,6 +32,7 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
+
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 
@@ -47,13 +51,50 @@ app.use(methodOverride(function (req, res) {
   }
 }))
 
-app.use(adminRoute)
+// app.get("/lol", (req,res,next)=>{
+//   res.render("qrindex")
+// })
+
+
 app.use(mainRoutes)
+app.use(payRoute);
+app.use(adminRoute)
 app.use(authRoute);
-app.use(userRoute);
 app.use(postRoute);
+app.use(userRoute);
 
 
+
+
+// const a = async(req,res) => {
+//   const b = await User.find();
+//   console.log(b);
+// }
+
+
+// app.get("/lol/qrscan", async(req, res, next) => {
+//  try {
+//   console.log("inside scan");
+//   const b = await User.find();
+//   const input_text = [];
+//   b.map(d => {
+//     input_text.push(`Email: ${d.email}, Endorser:${d.endorser}`)
+//   })
+
+//   console.log(input_text);
+
+//   // console.log(input_text);
+
+//   qrcode.toDataURL(input_text, (err, src) => {
+//     if (err) res.send("Something went wrong!!");
+//     res.render("qrscan", {
+//       qr_code: src,
+//     });
+//   });
+//  } catch (error) {
+//    res.status(500).json(error)
+//  }
+// });
 
 
 

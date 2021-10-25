@@ -10,6 +10,10 @@ function myFunction() {
       x.className = "right-nav";
     }
 }
+
+//pay script
+console.log("payment");
+document.getElementById("paym").submit();
     
   //delete script
   console.log("connected")

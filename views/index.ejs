@@ -33,21 +33,29 @@
 
     <div class="charity-section">
       <h1>Current Drives</h1>
-    <div class="details">
+    <div class="detkails">
       
         <% if(posts.length > 0 ){ %> 
         <% posts.map((post)=>{  %> 
+          <div class="main">
             <div class="donation-card">
-              <a href="/<%= post._id %>"  class="single">
-               <img src="/media/<%= post.image %> "> 
+              <a href="/<%= post._id %>">
+               <img class="img-index" src="/media/<%= post.image %> "> 
                 <p><%= post.title %> </p>
                 <p><%= post.desc %> </p>
                 <p>Funds target : <%= post.amount %> </p>
+               </a>
                 <div class="buttons">
-                    <button class="registerBtn">Share</button>
-                    <button class="registerBtn">Donate</button>
-                </div></a>
+                  <button class="registerBtn">Share</button>
+                  <a class="payBtn" href="/pay"><button class="registerBtn">Donate</button></a>
+                </div>
             </div> 
+        
+          <img class="qrpic" src="/media/qr.png" alt="">
+           <!-- QR GEN -->
+          <!-- <img src=<d%=qr_code[0] %> alt="QR Code"> -->
+          </div>
+        </div>
             <% })}else { %>  
             <h3>No charity drives available </h3>
           <% } %> 
@@ -79,13 +87,13 @@
          width: 100%;
        } */
     .donation-card{
-    
+      
         text-align: center;
         background-color: white;
-        width: 35%;
-        
-        margin: auto;
+        width: 29%;
+       
         margin-top: 5%;
+        margin-left: auto;
         border-radius: 25px;
         background-color: #fff;
         border-radius: 10px;
@@ -95,19 +103,19 @@
     
     .buttons{
         display: flex;
-        justify-content: center;
+        justify-content:space-evenly ;
     }
     button{
     margin-top: 3%;
     border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 8px 20px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+	  border: 1px solid #FF4B2B;
+	  background-color: #FF4B2B;
+	  color: #FFFFFF;
+	  font-size: 12px;
+	  font-weight: bold;
+	  padding: 8px 20px;
+	  letter-spacing: 1px;
+	  text-transform: uppercase;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -122,6 +130,24 @@ button:focus {
 button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
+}
+.img-index{
+ width: 100%;
+}
+.main{
+ 
+  display: flex;
+  
+}
+.qrpic{
+  
+  width: 11%;
+  height: 11%;
+  margin: auto;
+  margin-left: 0;
+}
+.payBtn{
+  margin-right: 8%;
 }
 </style>
 </body>
