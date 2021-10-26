@@ -3,7 +3,7 @@
 var crypt = require('./crypt');
 var util = require('util');
 var crypto = require('crypto');
-console.log("checksumA");
+
 
 //mandatory flag: when it set, only mandatory parameters are added to checksum
 
@@ -31,7 +31,7 @@ function paramsToString(params, mandatoryflag) {
 });
   return data;
 }
-console.log("checksumB");
+
 
 
 function genchecksum(params, key, cb) {
@@ -55,7 +55,7 @@ function genchecksumbystring(params, key, cb) {
     cb(undefined, CHECKSUMHASH);
   });
 }
-console.log("checksumC");
+
 function verifychecksum(params, key, checksumhash) {
   var data = paramsToString(params, false);
 
@@ -93,7 +93,7 @@ function verifychecksumbystring(params, key,checksumhash) {
       return false;
     }
   } 
-  console.log("checksumD");
+
 function genchecksumforrefund(params, key, cb) {
   var data = paramsToStringrefund(params);
 crypt.gen_salt(4, function (err, salt) {
@@ -124,7 +124,7 @@ function paramsToStringrefund(params, mandatoryflag) {
 });
   return data;
 }
-console.log("checksumE");
+
 module.exports.genchecksum = genchecksum;
 module.exports.verifychecksum = verifychecksum;
 module.exports.verifychecksumbystring = verifychecksumbystring;

@@ -55,6 +55,29 @@ app.use(methodOverride(function (req, res) {
 //   res.render("qrindex")
 // })
 
+//MAIN PAGE
+app.get("/" , (req,res) => {
+
+  const approved = [];
+
+  Post.find()
+  .then((result) => {
+    result.map(ele => {
+      if(ele.approved == true){
+      approved.push(ele);
+    } else{
+     console.log("no approved posts");
+    }})
+    res.render("index", {posts:approved}) 
+  } )
+  .catch((err)=> console.log(err,"found error"))
+});
+
+
+
+
+
+
 
 app.use(mainRoutes)
 app.use(payRoute);
