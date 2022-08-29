@@ -5,8 +5,7 @@ const router = require("express").Router();
 const https = require("https");
 const qs = require("querystring");
 
-const checksum_lib = require("./Paytm/checksum");
-const config = require("./Paytm/config");
+
 
 const parseUrl = express.urlencoded({ extended: false });
 const parseJson = express.json({ extended: false });

@@ -23,15 +23,21 @@ app.use(express.urlencoded({extended:true}))
 
 dotenv.config();
 
-mongoose.connect(
-  process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    // const collections = Object.keys(mongoose.connection.collections);
-    // console.log(collections);
-    console.log("Connected to MongoDB");
-  }
-);
+async function createConnection() {
+
+  await mongoose.connect(
+    process.env.MONGO_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => {
+      // const collections = Object.keys(mongoose.connection.collections);
+      // console.log(collections);
+      console.log("Connected to MongoDB");
+    }
+  );
+}
+
+createConnection()
+
 
 app.get('/favicon.ico', (req, res) => res.status(204));
 

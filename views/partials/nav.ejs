@@ -1,21 +1,52 @@
+<nav class="navbar">
+        <div class="logo"><img src="/media/AspirationsLogo.png" alt="LOGO" width="70px">
+                <span><h2 class="brand-name">Aspiration</h2></span>
+        </div>
+        <div class="push-left">
+          <button id="menu-toggler" data-class="menu-active" class="hamburger">
+            <span class="hamburger-line hamburger-line-top"></span>
+            <span class="hamburger-line hamburger-line-middle"></span>
+            <span class="hamburger-line hamburger-line-bottom"></span>
+          </button>
+      
+          <!--  Menu compatible with wp_nav_menu  -->
+          <ul id="primary-menu" class="menu nav-menu">
+            <li class="menu-item current-menu-item"><a class="nav__link"  href="/login">Login</a></li>
+            <li class="menu-item dropdown"><a class="nav__link"  href="/registerUser">Sign Up</a>
+            </li>
+            <li class="menu-item dropdown"><a class="nav__link"  href="/">About Us</a>
+            </li>
+            <li class="menu-item "><a class="nav__link"  href="admin-login">Login As Admin</a>
+            </li>
+          </ul>
+      
+      
+        </div>
+      </nav>
+      
 
 
-<div class="nav">
-    
-        <a href="/" class="w3-bar-item w3-button heading">Charitable</a>
+
+<!-- <div class="nav">
+        
+        <a href="/"><img src="/media/AspirationsLogo.png" width="100px"></a>
+        <a href="/" class="w3-bar-item w3-button heading"><h2>ASPIRATION</h2></a>
+        <br>
+         <h4 style="margin-left:1rem ;" >Helping Our Tomorrow Today </h4>
+
        <div class="others">
-               <!-- <d% if(user){ %>
+                <d% if(user){ %>
                 Logged in as <d%=user  %> 
                <d% }else{ %>  
-                <d%<a href="/login" >Login</a>  %>  -->
+                <d%<a href="/login" >Login</a>  %>
         <a href="/login" >Login</a>
         <a href="/registerUser" >Register</a>
         <a href="/">About us</a>
         <a href="/admin-login" >Log in as Admin</a>
-       </div>
+       </div> -->
        
        
-       <style>
+       <!-- <style>
 
 .nav {
   position:sticky;
@@ -49,4 +80,179 @@
         </style>
 
         
-</div>
+</div> -->
+
+
+<style>
+        /* Extra */
+/* primary: #fff;
+secondary: #ccc;
+ternary: #272727;
+dark: #444444; */
+
+.brand-name {
+        margin-left: 15px;
+        margin-bottom: 10px;
+}
+
+body {
+  background: #ccc;
+  color: #272727;
+  font-size: 14px;
+  margin: 0;
+
+}
+
+.logo {
+  max-width: 200px;
+  display: flex;
+}
+.navbar {
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: row;
+  font-family: sans-serif;
+  padding: 10px 50px;
+  margin-bottom: 1rem;
+}
+
+.push-left {
+  margin-left: auto;
+}
+
+/* Menu */
+.hamburger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  outline: none;
+  height: 30px;
+  position: relative;
+  width: 30px;
+  z-index: 1000;
+  @media screen and (max-width: 768px) {
+    display: inline-block;
+  }
+}
+  
+  .hamburger-line {
+    background: #272727;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    transition: all .2s ease-out; 
+    width: 100%;
+  }
+    
+    .hamburger:hover  {
+      background: #777;
+    }
+    
+    .hamburger-top {
+      top: 3px;
+    }
+    
+    .menu-active .hamburger-top {
+      top: 50%;
+      transform: rotate(45deg) translatey(-50%);
+    }
+    
+    .hamburger-middle {
+      top: 50%;
+      transform: translatey(-50%);
+    }
+    
+    .menu-active .hamburger-middle {
+      left: 50%;
+      opacity: 0;
+      width: 0;
+    }
+
+    .hamburger-bottom {
+      bottom: 3px;
+    }
+
+    .menu-active .hamburger-bottom {
+      bottom: 50%;
+      transform: rotate(-45deg) translatey(50%);
+    }
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: all .25s ease-in; 
+  
+  @media screen and (max-width: 768px) {
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transform: translatey(-100%);
+    text-align: center;
+    
+    .menu-active & {
+      transform: translatey(0%);  
+      opacity: 1;
+    }
+  }
+
+}
+  
+  .menu-item a {
+    color: #444444;
+    display: block;
+    line-height: 30px;
+    margin: 0px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+    
+    .menu-item:hover {
+      color: lighten(#444444, 20);
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+       body {
+      font-size: 20px;
+      margin: 8px;
+        }
+    }
+
+.sub-nav {
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 5px 5px;
+    list-style: none; 
+    width: 230px;   
+    @media screen and (max-width: 768px) {
+      position: relative;
+      width: 100%;
+      display: none;
+      background-color: rgba(0, 0, 0, 0.20);
+      box-sizing: border-box;
+    }
+}
+
+ /* .nav-link {
+   .nav-link:hover + .sub-nav {
+        display:block;
+
+ }
+}
+
+.sub-nav {
+  .sub-nav:hover {
+    display:block;
+  } */
+/* } */
+</style>
