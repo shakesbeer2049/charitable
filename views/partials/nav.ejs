@@ -1,6 +1,7 @@
 <nav class="navbar">
-        <div class="logo"><img src="/media/AspirationsLogo.png" alt="LOGO" width="70px">
-                <span><h2 class="brand-name">Aspiration</h2></span>
+        <div class="logo" href="/index.js"><img src="/media/AspirationsLogo.png" alt="LOGO" width="70px">
+                <span><h2 class="brand-name" href="/index.js">Aspirations</h2></span><br><br>
+                
         </div>
         <div class="push-left">
           <button id="menu-toggler" data-class="menu-active" class="hamburger">
@@ -13,11 +14,14 @@
           <ul id="primary-menu" class="menu nav-menu">
             <li class="menu-item current-menu-item"><a class="nav__link"  href="/login">Login</a></li>
             <li class="menu-item dropdown"><a class="nav__link"  href="/registerUser">Sign Up</a>
+              <li class="menu-item "><a class="nav__link" ><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KHj1vQtuNFlL4k" async></script>Profiles</a>
+              </li>
             </li>
-            <li class="menu-item dropdown"><a class="nav__link"  href="/">About Us</a>
+            <li class="menu-item dropdown"><a class="nav__link"  href="/index">About Us</a>
             </li>
             <li class="menu-item "><a class="nav__link"  href="admin-login">Login As Admin</a>
             </li>
+            
           </ul>
       
       
@@ -84,6 +88,7 @@
 
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         /* Extra */
 /* primary: #fff;
 secondary: #ccc;
@@ -93,7 +98,13 @@ dark: #444444; */
 .brand-name {
         margin-left: 15px;
         margin-bottom: 10px;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 23px;
+
 }
+
 
 body {
   background: #ccc;
@@ -109,7 +120,7 @@ body {
 }
 .navbar {
   align-items: center;
-  background: #fff;
+  background: white;
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: row;
@@ -243,14 +254,15 @@ body {
     }
 }
 
- /* .nav-link {
-   .nav-link:hover + .sub-nav {
-        display:block;
+  .nav__link {
+   font-size: 19px;
+   font-weight: bold;
+   color: white;
+   font-family: 'Bebas Neue', cursive;
 
- }
-}
+} 
 
-.sub-nav {
+/*.sub-nav {
   .sub-nav:hover {
     display:block;
   } */
