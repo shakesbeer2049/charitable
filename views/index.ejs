@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,145 +11,554 @@
   <title>Charity Verification</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <title>Charitable</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+
+  <title>ASPIRATION</title>
   <link rel="stylesheet" href="/styles/index.css">
 </head>
+
 <body>
-    <!-- Navigation (Sits on top) -->
-  <%- include('partials/nav') %> 
-  <div class="container" action="/">
-    <img class="bg-image" src="/media/bd_2.jpg" alt="" srcset="">
-    <div class="header">
-  
-      <h1>CHARITABLE</h1>
-      <h2> Trusted fundraising for all of life's moments </h2>
-      <h3>Get help. Give kindness. Start in just 5 minutes.</h3> 
-      <!-- <img src="/media/bd_2.jpg"> -->
-      <!-- <img src="public/1634218475818--firewatch.jpg"> -->
-      <a href="/registerUser"><button class="registerBtn">START A CHARITY DRIVE</button></a>
-      <!-- <a href="/registerOrg"><button class="registerBtn">Organization</button></a> -->
+  <form>
+    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KHkZViUgpGr9wK"
+      async> </script>
+  </form>
+
+  <!-- Navigation (Sits on top) -->
+  <%- include('partials/nav') %>
+    <section aria-label="Newest Photos">
+      <div class="carousel" data-carousel>
+        <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+        <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+        <ul data-slides>
+          <li class="slide" data-active>
+            <img src="/media/charitypic1.jpg" alt="Nature Image #1">
+          </li>
+          <li class="slide">
+            <img src="/media/img15.jpg" alt="Nature Image #2">
+          </li>
+          <li class="slide">
+            <img src="/media/img16.jpg" alt="Nature Image #3">
+          </li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      const buttons = document.querySelectorAll("[data-carousel-button]")
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => {
+          const offset = button.dataset.carouselButton === "next" ? 1 : -1
+          const slides = button
+            .closest("[data-carousel]")
+            .querySelector("[data-slides]")
+
+          const activeSlide = slides.querySelector("[data-active]")
+          let newIndex = [...slides.children].indexOf(activeSlide) + offset
+          if (newIndex < 0) newIndex = slides.children.length - 1
+          if (newIndex >= slides.children.length) newIndex = 0
+
+          slides.children[newIndex].dataset.active = true
+          delete activeSlide.dataset.active
+        })
+      })
+      
+
+    </script>
+
+
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="content" class="object-cover object-center h-full w-full" src="/media/im1.png">
+            </div>
+            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">ASPIRATIONS FOOD SUPPORT</h2>
+            <p class="leading-relaxed text-base">Islam is a religion of peace, tranquility, cooperation and brotherhood.
+              Holy Prophet (P.B.U.H) spent his whole life helping the poor and the needy. And instructed his followers
+              to do the same, following the teachings of our beloved Prophet (P.B.U.H) the Aspirations Trust with the
+              assistance of donors is looking after the needs of thousands of families, widows and orphans. For such
+              people every month basic commodities (ration) are provided by Aspirations Trust .
+              Our Food Projects help feed millions of needy people a year from providing low-income families monthly
+              Ration Packs to providing a nutritional and dignified meal twice a day at our Food Kitchen.</p>
+            <button
+              class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">Join
+              Us</button>
+          </div>
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="content" class="object-cover object-center h-full w-full" src="/media/im4.png">
+            </div>
+            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">ASPIRATIONS EDUCATION SUPPORT</h2>
+            <p class="leading-relaxed text-base">Allocation of children is made according to need by the Sponsorship
+              Department. However, if a sponsor has a preference for a child in a particular project, efforts will be
+              made to comply. Once a child is allocated to a sponsor, a brief history and annual progress reports are
+              provided.
+              The sponsorship scheme is an excellent way for the community to share in the responsibility of providing
+              for these vulnerable children and ensuring that they get a fair chance in life. Sponsors may correspond
+              with their sponsored children and also visit them. Many sponsors establish a close bond with the children
+              who, in turn, derive great benefit from this relationship.</p>
+            <button
+              class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">Join
+              Us</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br>
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="content" class="object-cover object-center h-full w-full" src="/media/im2.jpg">
+            </div>
+            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">ASPIRATIONS FINANCIAL SUPPORT</h2>
+            <p class="leading-relaxed text-base">ASPIRATIONS trust is creating opportunities to exploit the Islamic
+              principles of interest-free credit (Qard-E-Hassana).
+              Aspirations Islamic Micro financing Scheme dispense needy persons the power to create elbow rooms for
+              themselves and others.
+              Scaled-down entrepreneurs in many underdeveloped nations do not have access to simple banking facilities..
+            </p><br><br><br><br>
+            <button 
+              class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">Join
+              Us</button>
+          </div>
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="content" class="object-cover object-center h-full w-full" src="/media/im3.jpg">
+            </div>
+            <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">ASPIRATIONS CLOTHING SUPPORT</h2>
+            <p class="leading-relaxed text-base">ASPIRATIONS reflects its strong and steeped belief in providing a
+              garment of hope where there is nothing but mere frays of hopelessness and helplessness are left!
+              We live in a brutal world where threads of hope are brutally frayed. The fabric that binds us is ripping
+              right from the seams. Sadly, we have lost the realization that we are cut from the same cloth. Yet, in
+              this time of adversity, some roll their sleeves and inspire us with heartwarming deeds. Aspirations trust
+              believes in the garment of hope, not just for those who are lacking the human right of clothing but also
+              who are shunned by the societ.</p>
+            <button
+              class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded" href="/pay">Join
+              Us</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="card1" style="width: 82rem;">
+      <img id="img" src="/media/im5.jpg" class="card-img-top" alt="...">
+      <br><br>
+      <div class="card-body">
+        <h2 class="card"> VOLUNTEER</h2>
+        <p class="card-title">When a community gets access to clean water, it can change just about everything. It can
+          improve health increase access to food, grow local sio economies, and help kids.Become a volunteer and join
+          hands with us to serve the nation </p>
+        <button id="bt"
+          class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">Join
+          Us</button>
+        <form>
+          <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KHj1vQtuNFlL4k"
+            async> </script>
+        </form>
+
+      </div>
     </div>
-    </div>
+    <br><br>
 
     <div class="charity-section">
-      <h1>Current Drives</h1>
-    <div class="detkails">
-      
-        <% if(posts.length > 0 ){ %> 
-        <% posts.map((post)=>{  %> 
-          <div class="main">
-            <div class="donation-card">
-              <a href="/<%= post._id %>">
-               <img class="img-index" src="/media/<%= post.image %> "> 
-                <p><%= post.title %> </p>
-                <p><%= post.desc %> </p>
-                <p>Funds target : <%= post.amount %> </p>
-               </a>
+      <h1 id="bck">Current Drives</h1>
+      <div class="detkails">
+
+        <% if(posts.length> 0 ){ %>
+          <% posts.map((post)=>{ %>
+            <div class="main">
+              <div class="donation-card">
+                <a href="/<%= post._id %>">
+                  <img class="img-index" src="/media/<%= post.image %> ">
+                  <p>
+                    <%= post.title %>
+                  </p>
+                  <p>
+                    <%= post.desc %>
+                  </p>
+                  <p>Funds target : <%= post.amount %>
+                  </p>
+                </a>
+                <div class="progress-bar" style="--width: 10" data-label="  Funds Raised "></div>
+             
                 <div class="buttons">
                   <button class="registerBtn">Share</button>
                   <a class="payBtn" href="/pay"><button class="registerBtn">Donate</button></a>
                 </div>
-            </div> 
-        
-          <img class="qrpic" src="/media/qr.png" alt="">
-           <!-- QR GEN -->
-          <!-- <img src=<d%=qr_code[0] %> alt="QR Code"> -->
-          </div>
-        </div>
-            <% })}else { %>  
-            <h3>No charity drives available </h3>
-          <% } %> 
+                <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KHkZViUgpGr9wK" async> </script> </form> -->
+
+              </div>
+
+              <img class="qrpic" src="/media/qr.png" alt="">
+              <!-- QR GEN -->
+              <!-- <img src=<d%=qr_code[0] %> alt="QR Code"> -->
+            </div>
+      </div>
+      <% })}else { %>
+        <h3>No charity drives availables </h3>
+        <% } %>
 
     </div>
     </div>
-    <div class="footer">
+
+    <br><br>
+    <footer id="foot" class="text-gray-600 body-font">
+      <div
+        class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+              viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ter" class="ml-3 text-xl">Aspiration</span>
+          </a>
+          <p class="ter" class="mt-2 text-sm text-gray-500">Helping Our Tommorrow Today</p>
+        </div>
+        <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="ter" class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Aspiration</h2>
+            <nav class="itm" class="list-none mb-10">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Home</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Profiles</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">About Us</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Donate Now</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="ter" class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Aspiration Team
+            </h2>
+            <nav class="itm" class="list-none mb-10">
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">Contact us</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">SupportAspiration@gmail.com</a>
+              </li>
+              <li>
+                <a class="text-gray-600 hover:text-gray-800">7006982290</a>
+              </li>
+
+            </nav>
+          </div>
+          <div class="drp" class="col-4 offset-1">
+            <form>
+              <h5>Drop in your feedback</h5>
+              <p>Send us a mail about your query.</p>
+              <div class="d-flex w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">e mail address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Mail">
+                <button id="btn" class="btn btn-primary" type="button">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br><br>
+        <div class="ter" class="d-flex justify-content-between py-4 my-4 border-top">
+          <p>© 2022 ASPIATION TRUST, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                  <use xlink:href="#twitter"></use>
+                </svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                  <use xlink:href="#instagram"></use>
+                </svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                  <use xlink:href="#facebook"></use>
+                </svg></a></li>
+          </ul>
+        </div>
+
+
+      </div>
+    </footer>
+    <!-- <div class="footer">
       <h4>“ When a person dies, all their deeds end except three:
         a continuing charity, beneficial knowledge and a 
         child who prays for them ”</h4>  
-    </div>
+    </div> -->
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lobster&display=swap');
+      
+      .card-title {
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'Lobster', cursive;
+        margin-left: 190px;
+
+      }
   
-  <style>
-    h1{
+
+
+.progress-bar {
+	position: relative;
+	width: 400px;
+	height: 3em;
+	background-color: rgb(235, 13, 87);
+	border-radius: 1.5em;
+	color: white;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.progress-bar::before {
+	content: attr(data-label);
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: .5em;
+	top: .5em;
+	bottom: .5em;
+	width: 30%;
+	min-width: 2rem;
+	max-width: calc(100% - 1em);
+	background-color: rgb(0, 0, 0);
+	border-radius: 1em;
+	padding: 1em;
+}
+
+      #foot {
+        background-color: black;
+
+        height: 400px;
+      }
+
+      .ter {
+        color: rgb(189, 209, 12);
+        font-weight: bold;
+        font-size: 17px;
+
+      }
+
+
+      .drp {
+        margin-left: 50px;
+      }
+
+      .itm {
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+
+      }
+
+      #bck {
+        color: black;
+        font-weight: bold;
+        font-size: 25px;
+        font-family: 'Lobster', cursive;
+        margin-left: 6px;
+        margin-right: 150px;
+      }
+
+      .card {
+        color: black;
+        font-weight: bold;
+        font-size: 32px;
+        font-family: 'Lobster', cursive;
+        margin-left: 590px;
+      }
+
+      #bt {
+        margin-left: 600px;
+      }
+
+      #btn {
+        background-color: rgb(189, 209, 12);
+        color: black;
+      }
+
+      #img {
+        margin-left: 130px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .carousel {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+      }
+
+      .carousel>ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: 200ms opacity ease-in-out;
+        transition-delay: 200ms;
+      }
+
+      .slide>img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .slide[data-active] {
+        opacity: 1;
+        z-index: 1;
+        transition-delay: 0ms;
+      }
+
+      .carousel-button {
+        position: absolute;
+        z-index: 2;
+        background: none;
+        border: none;
+        font-size: 4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, .5);
+        cursor: pointer;
+        border-radius: .25rem;
+        padding: 0 .5rem;
+        background-color: rgba(0, 0, 0, .1);
+      }
+
+      .carousel-button:hover,
+      .carousel-button:focus {
+        color: white;
+        background-color: rgba(0, 0, 0, .2);
+      }
+
+      .carousel-button:focus {
+        outline: 1px solid black;
+      }
+
+      .carousel-button.prev {
+        left: 1rem;
+      }
+
+      .carousel-button.next {
+        right: 1rem;
+      }
+
+      .carousel-inner {
+        height: 500px;
+      }
+
+      h1 {
         text-align: center;
-    }
-    .details{
+      }
+
+      .details {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-bottom: 5%;
-}
+      }
 
-.registerBtn{
-  margin-bottom: 7%;
-}
-       /* img{
+      .registerBtn {
+        margin-bottom: 7%;
+      }
+
+      /* img{
          width: 100%;
        } */
-    .donation-card{
-      
+      .donation-card {
+
         text-align: center;
         background-color: white;
         width: 29%;
-       
+
         margin-top: 5%;
         margin-left: auto;
         border-radius: 25px;
         background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-                    0 10px 10px rgba(0,0,0,0.22);
-    }
-    
-    .buttons{
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      .buttons {
         display: flex;
-        justify-content:space-evenly ;
-    }
-    button{
-    margin-top: 3%;
-    border-radius: 20px;
-	  border: 1px solid #FF4B2B;
-	  background-color: #FF4B2B;
-	  color: #FFFFFF;
-	  font-size: 12px;
-	  font-weight: bold;
-	  padding: 8px 20px;
-	  letter-spacing: 1px;
-	  text-transform: uppercase;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-button:active {
-	transform: scale(0.95);
-}
+        justify-content: space-evenly;
+      }
 
-button:focus {
-	outline: none;
-}
+      button {
+        margin-top: 3%;
+        border-radius: 20px;
+        border: 1px solid #FF4B2B;
+        background-color: #FF4B2B;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 8px 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
 
-button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
-}
-.img-index{
- width: 100%;
-}
-.main{
- 
-  display: flex;
-  
-}
-.qrpic{
-  
-  width: 11%;
-  height: 11%;
-  margin: auto;
-  margin-left: 0;
-}
-.payBtn{
-  margin-right: 8%;
-}
-</style>
+      button:active {
+        transform: scale(0.95);
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      button.ghost {
+        background-color: transparent;
+        border-color: #FFFFFF;
+      }
+
+      .img-index {
+        width: 100%;
+      }
+
+      .main {
+
+        display: flex;
+
+      }
+
+      .qrpic {
+
+        width: 11%;
+        height: 11%;
+        margin: auto;
+        margin-left: 0;
+      }
+
+      .payBtn {
+        margin-right: 8%;
+      }
+    </style>
 </body>
+
 </html>

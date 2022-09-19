@@ -15,16 +15,43 @@
     <form action="/login" method="post">
       <div class="container">
         <h1>Login</h1>
+        <div id="hw">
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+        <input type="text" placeholder="Please Enter Email" name="email" id="email" required>
         <br />
         <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+        <input type="password" placeholder="Please Enter Password" name="password" id="password" required>
         <br />
           <button type="submit" class="loginbtn btn"><h3>Login</h3></button>
-        <h3>Don't have an account? <a href="/">Register</a></h3>
+        <h3>Don't have an account? <a href="/registerUser">Register</a></h3>
+        </div>
       </div>
       </form>
   </div>
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,200;1,100&family=Lato:wght@300&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lobster&display=swap');
+
+    body{
+      background-image: url("/media/img4.jpeg");
+      /* background-size: cover; */
+    }
+    .container{
+      background-image: url("/media/img11.jpg");
+    }
+    #hw{
+      color: white;
+      font-weight: bold;
+      font-size: 17px;
+      font-family: 'Lobster', cursive;
+
+    }
+    h1{
+      color: white;
+      font-family: 'Lobster', cursive;
+      
+    }
+  </style>
 </body>
 </html>

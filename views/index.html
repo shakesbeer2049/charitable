@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Paytm Payment</title>
+  </head>
+  <body>
+
+    <div class="row my-5">
+      <div class="col-md-4 offset-md-4">
+        <div class="card">
+          <div class="card-body">
+            <form class="" action="/paynow" method="post">
+              <div class="form-group">
+                <input class="form-control" type="text" name="name" value="" required placeholder="Enter your Name">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="email" name="email" value="" required placeholder="Enter your Email">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="number" name="phone" value="" required placeholder="Enter your mobile number">
+              </div>
+                <div class="form-group">
+                <input class="form-control" type="number" name="amount" value="" required placeholder="Amount">
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="message" value="" placeholder="Course name">
+              </div>
+              <div class="form-group">
+                <!-- <button  type="submit" class="btn form-control btn-primary">Proceed to Pay</button> -->
+                <form id="bt"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KHkZViUgpGr9wK" async> </script> </form>
+                   
+
+              </div>
+              <!-- <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KHkZViUgpGr9wK" async> </script>  -->
+
+
+            <!-- </form> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h1>Custom Progress Bar</h1>
+
+<div class="progress">
+	<div class="progress-done" data-done="70">
+		70%
+	</div>
+    <script>const progress = document.querySelector('.progress-done');
+
+        progress.style.width = progress.getAttribute('data-done') + '%';
+        progress.style.opacity = 1;
+        </script>
+</div>
+
+    <style>
+        
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+/* 	background-color: #f4f4f4; */
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.progress {
+	background-color: #d8d8d8;
+	border-radius: 20px;
+	position: relative;
+	margin: 15px 0;
+	height: 30px;
+	width: 300px;
+}
+
+.progress-done {
+	background: linear-gradient(to left, #F2709C, #FF9472);
+	box-shadow: 0 3px 3px -5px #F2709C, 0 2px 5px #F2709C;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
+}
+        #bt{
+            margin-left: 80px;
+        }
+    </style>
+  </body>
+</html>

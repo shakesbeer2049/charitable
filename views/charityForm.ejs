@@ -11,7 +11,7 @@
   <%- include('partials/nav') %> 
 <form action="/create" method="POST" enctype="multipart/form-data">
   <div class="container">
-    <h1>Charitable</h1> <br>
+    <h1>Aspirations</h1> <br>
     <p>Fill in your details</p>
     <hr>
    
@@ -46,12 +46,14 @@
     <input type="desc" placeholder="for childrens education" name="desc" id="desc" required>
     <br />
     
-    <label for="image"><b>Post Image</b></label>
+    <label for="image"><b>Post Image/docs</b></label>
     <input type="file" placeholder="image" name="image" id="image" required>
     
     <!-- <label for="docs"><b>Upload Documents</b></label>
     <input type="file" placeholder="docs" name="docs" id="docs" required> -->
     <br />
+    <!-- <label for="image"><b>Upload Docs</b></label>
+    <input type="file" placeholder="image" name="image" id="image" required> -->
 
     <!-- <label for="relation"><b>Whom are you rasing funds for?</b></label>
     <input type="text" placeholder="myself" name="relation" id="relation">
@@ -67,5 +69,20 @@
 
   
 </form>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lobster&display=swap');
+
+  body{
+    background-image: url("/media/img20.jpg");
+    /* background-size: cover ; */
+  }
+  .container{
+      background-image: url("/media/img5.webp");
+      color: rgb(68, 55, 55);
+      font-weight: bold;
+      font-size: 17px;
+      font-family: 'Lobster', cursive;
+    }
+</style>
 </body>
 </html>
